@@ -1,0 +1,25 @@
+<div class="table">
+  <table>
+    <thead>
+      <tr>
+      <th>Name</th>
+      <th>Gia</th>
+      <th>Mota</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      </tr>
+      <tr *ngFor="let product of products">
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.desc}}</td>
+        <td>{{product.status?'còn hàng':'hết hàng'}}</td>
+        <td><button class="btn btn-primary" (click)="showDetail(product)">Click me!</button></td>
+        <td><button class="btn btn-primary" (click)="removeItem(product.id)">Xóa</button></td>
+      </tr>
+    </thead>
+  </table>
+  <div class="detail" *ngIf="selected">
+    <app-product-detail [data]="selected"></app-product-detail>
+</div>
+</div>

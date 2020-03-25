@@ -1,0 +1,25 @@
+<header class="d-flex mb-3 pt-5 justify-content-between">
+  <h2>Manager Product</h2>
+  <button routerLink="/product/add" class="btn btn-primary">Add Product</button>
+</header>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; index as i">
+      <th scope="row">{{i}}</th>
+      <td><a routerLink="/product/detail/{{product.id}}">{{product.name}}</a></td>
+      <td>{{product.price}}</td>
+      <td width="200" class="text-right">
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-danger ml-2"  (click)="removeItem(product.id)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
